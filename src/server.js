@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express')
+const ejsLayout = require('express-ejs-layouts');
 const app = express();
 const { default: AdminBro } = require("admin-bro");
 const adminBroOptions = require('./hooks/admin.options');
@@ -18,6 +19,7 @@ const run = async ()=>{
     }
     app.use(adminBro.options.rootPath,adminRouter);
     app.set('view engine', 'ejs')
+    app.use(ejsLayout);
     app.use(express.static('/public',path.join(__dirname,'../public')))
     app.use(express.urlencoded({ extended: true }));
     
