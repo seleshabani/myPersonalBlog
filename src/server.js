@@ -6,8 +6,9 @@ const app = express();
 const { default: AdminBro } = require("admin-bro");
 const adminBroOptions = require('./hooks/admin.options');
 const buildAdminBroRouter = require("./routes/admin/admin.router");
-const path = require('path')
-// const { connectDb } = require('./hooks/functions');
+const path = require('path');
+const indexRouter = require('./routes/public');
+ const { connectDb } = require('./hooks/functions');
 const PORT = process.env.PORT || 3500;
 
 const run = async () => {
@@ -18,19 +19,17 @@ const run = async () => {
     app.use(adminBro.options.rootPath, adminRouter);
 
     try {
-        await mongoose.connect(process.env.db,
-            { useNewUrlParser: true, useUnifiedTopology: true }, () => {
-                console.log('db connected')
-            });
+        await connectDb(process.env.db)
     } catch (error) {
         console.log(error)
     }
     
     app.set('view engine', 'ejs')
-    //app.set('layouts','ejs-layouts')
+    app.set('views',path.join(__dirname, 'views'))
+    app.set('layout',path.join(__dirname, 'views/layout/layout')); 
     app.use(ejsLayout);
     app.use(express.urlencoded({ extended: true }));
-
+    app.use('/',indexRouter)
     app.listen(PORT, () => {
         console.log(`server on http://localhost:/${PORT}`);
     })
