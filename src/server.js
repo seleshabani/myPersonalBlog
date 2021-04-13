@@ -10,9 +10,10 @@ const indexRouter = require('./routes/public');
  const { connectDb } = require('./hooks/functions');
 const PORT = process.env.PORT || 3500;
 const namedRouter = require('./hooks/namedRouter');
+const postRouter = require('./routes/public/post');
 
 const run = async () => {
-
+ 
     app.use('/public', express.static(path.join(__dirname, '../public')));
     const adminBro = new AdminBro(adminBroOptions);
     const adminRouter = buildAdminBroRouter(adminBro);
@@ -26,14 +27,16 @@ const run = async () => {
     
     app.set('view engine', 'ejs')
     app.set('views',path.join(__dirname, 'views'))
-    app.set('layout',path.join(__dirname, 'views/layout/layout'));
-    app.set("layout extractScripts", true) 
     app.use(ejsLayout);
+    app.set('layout',path.join(__dirname, 'views/layout/layout'));
+    app.set('layout extractStyles', true)
+    app.set("layout extractScripts", true)
     app.use(express.urlencoded({ extended: true }));
     app.use('/',indexRouter);
+    app.use('/articles',postRouter)
 
     app.listen(PORT, () => {
-        console.log(`server on http://localhost:/${PORT}`);
+        console.log(`server on http://localhost:${PORT}`);
     })
 }
 module.exports = run;

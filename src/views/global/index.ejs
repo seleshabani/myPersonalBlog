@@ -6,7 +6,7 @@
                     <img src="<%= `public/${rescentPosts[0].image}` %>" alt="">
                     <div class="post-img-detail">
                         <div class="categorie">
-                            <span>lorem ipsum</span>
+                            <span>lorem</span>
                         </div>
                         <div class="stats">
                             <span><i class="far fa-eye"></i></span>
@@ -16,7 +16,7 @@
                     </div>
                 </div>
                 <div class="post-resume">
-                    <a href="" class="title">
+                    <a href="articles<%= url('post-single', {id: rescentPosts[0]._id}) %>" class="title">
                        <%= rescentPosts[0].name %>
                     </a>
                     <p><%= rescentPosts[0].resume %></p>

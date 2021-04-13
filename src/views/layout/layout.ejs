@@ -7,14 +7,15 @@
     <link rel="stylesheet" href="/public/css/normalize.css">
     <link rel="stylesheet" href="/public/css/all.css">
     <link rel="stylesheet" href="/public/css/style.css">
+    <%- style %>
     <title>
-        <%= locals.websiteName %>
+        <%= locals.websiteName %> | <%= locals.page %>
     </title>
 </head>
 <body>
     <header>
         <div class="brand">
-            <a href=""><%= locals.websiteName %></a>
+            <a href="/"><%= locals.websiteName %></a>
         </div>
         <div class="input-search">
             <input type="text">
@@ -38,7 +39,7 @@
         <ul>
             <% locals.categories.forEach( categorie => { %>
                 <li>
-                    <a href="articles/categories/<%=categorie.id%>">
+                    <a href="/articles/categories/<%=categorie.id%>">
                         <%= categorie.name %>
                     </a>
                 </li>
@@ -48,5 +49,6 @@
     <main>
         <%- body %>
     </main>
+    <%- script %>
 </body>
 </html>

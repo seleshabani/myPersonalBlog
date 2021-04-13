@@ -1,11 +1,12 @@
 require('dotenv').config()
-const { categorieModel } = require("../../model/categories")
+const { categorieModel } = require("../../model/categories");
 
 const localsDataMidlwares = async (req,res,next)=>{
     try {
         let locals = {
             websiteName:process.env.websiteName,
-            categories:await categorieModel.find()
+            categories:await categorieModel.find(),
+            page:'Accueil'
         }
         res.locals = locals;
         next();
