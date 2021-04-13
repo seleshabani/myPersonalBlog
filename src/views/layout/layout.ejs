@@ -39,7 +39,8 @@
         <ul>
             <% locals.categories.forEach( categorie => { %>
                 <li>
-                    <a href="/articles/categories/<%=categorie.id%>">
+                    
+                    <a href="/articles<%= url('post-byCat')%>?catId=<%= categorie._id %>&page=1&limit=1">
                         <%= categorie.name %>
                     </a>
                 </li>

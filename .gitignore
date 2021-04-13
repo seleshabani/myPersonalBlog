@@ -4,3 +4,4 @@ error.log
 temp/
 .todo.txt
 public/uploads/*
+.git/
