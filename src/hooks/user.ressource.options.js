@@ -1,8 +1,8 @@
 const bcrypt = require('bcrypt')
-const {user} = require('../../model/user')
+const {userModel} = require('../model/user')
 
 const userOptions = {
-    resource: user,
+    resource: userModel,
     options: {
         properties: {
             encryptedPassword: {
@@ -19,10 +19,14 @@ const userOptions = {
             new: {
                 before: async (request) => {
                     if (request.payload.password) {
-                        request.payload = {
-                            ...request.payload,
-                            encryptedPassword: await bcrypt.hash(request.payload.password, 10),
-                            password: undefined,
+                        try {
+                            request.payload = {
+                                ...request.payload,
+                                encryptedPassword: await bcrypt.hash(request.payload.password, 10),
+                                password: undefined,
+                            }
+                        } catch (error) {
+                            console.log(error)
                         }
                     }
                     return request
