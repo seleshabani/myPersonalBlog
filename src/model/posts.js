@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const {categorieSchema } = require('./categories');
 
 const postSchema = mongoose.Schema({
     name:{
@@ -13,7 +14,7 @@ const postSchema = mongoose.Schema({
         required:true
     },
     categorieId:{
-        type:String
+        type:String,
     },
     createdAt:{
         type:Date,
@@ -22,11 +23,10 @@ const postSchema = mongoose.Schema({
     image:{
         type:String
     },
-    image_path:{
+    imageBucket:{
         type:String
     }
 });
 
 const postModel = mongoose.model('post',postSchema);
-
 module.exports = {postSchema,postModel}
