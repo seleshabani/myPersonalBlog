@@ -7,12 +7,14 @@
     <link rel="stylesheet" href="/public/css/normalize.css">
     <link rel="stylesheet" href="/public/css/all.css">
     <link rel="stylesheet" href="/public/css/style.css">
-    <title>news</title>
+    <title>
+        <%= locals.websiteName %>
+    </title>
 </head>
 <body>
     <header>
         <div class="brand">
-            <a href="">news website</a>
+            <a href=""><%= locals.websiteName %></a>
         </div>
         <div class="input-search">
             <input type="text">
@@ -34,16 +36,17 @@
     </header>
     <nav>
         <ul>
-            <li><a href="">Jobs</a></li>
-            <li><a href="">Technologies</a></li>
-            <li><a href="">Sport</a></li>
-            <li><a href="">Lifestyle</a></li>
+            <% locals.categories.forEach( categorie => { %>
+                <li>
+                    <a href="articles/categories/<%=categorie.id%>">
+                        <%= categorie.name %>
+                    </a>
+                </li>
+            <% }) %>
         </ul>
     </nav>
     <main>
-        <div class="container">
-            <%- body %>
-        </div>
+        <%- body %>
     </main>
 </body>
 </html>

@@ -104,6 +104,9 @@ img{
 .post-item .post-resume{
     height: 25%;
 }
+.post-resume{
+    word-wrap: break-word;
+}
 header{
     display: flex;
     flex-direction: row;
@@ -164,7 +167,8 @@ nav ul{
     height: 50px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap:.5rem;
 }
 nav ul li{
     height: 100%;

@@ -31,12 +31,12 @@ const postOptions = {
             },
             markdown:{
                 isVisible:{
-                    list:false
+                    list:false,edit:true
                 }
             },
             resume:{
                 isVisible:{
-                    list:false
+                    list:false,edit:true
                 }
             }
         }
