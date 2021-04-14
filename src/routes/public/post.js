@@ -45,4 +45,10 @@ postRouter.get('/categories/views','post-byCat',async (req,res)=>{
         res.render('error/server');
     }
 })
+postRouter.use(paginate(postModel,true,false));
+postRouter.get('/search/result','post-search',async (req,res)=>{
+
+    let searcQ = req.query.request;
+    res.render('posts/search',{posts:res.paginatedResults,searchq:searcQ})
+})
 module.exports = postRouter;

@@ -17,10 +17,12 @@
         <div class="brand">
             <a href="/"><%= locals.websiteName %></a>
         </div>
-        <div class="input-search">
-            <input type="text">
+        <form action="/articles<%= url('post-search') %>" class="input-search">
+            <input type="text" name="request">
+            <input type="hidden" name="page" value="1">
+            <input type="hidden" name="limit" value="4">
             <button class="btn">Rechercher</button>
-        </div>
+        </form>
         <div class="socials-links">
             <div class="text">
                 <span>Suivez moi sur</span>
@@ -40,7 +42,7 @@
             <% locals.categories.forEach( categorie => { %>
                 <li>
                     
-                    <a href="/articles<%= url('post-byCat')%>?catId=<%= categorie._id %>&page=1&limit=1">
+                    <a href="/articles<%= url('post-byCat')%>?catId=<%= categorie._id %>&page=1&limit=4">
                         <%= categorie.name %>
                     </a>
                 </li>

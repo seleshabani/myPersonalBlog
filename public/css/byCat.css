@@ -17,3 +17,13 @@
     gap: 1rem;
     padding: 0%;
 }
+.pagination{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    padding: 10px;
+}
+.pagination a{
+    width: 80px;
+}
