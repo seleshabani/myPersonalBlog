@@ -7,14 +7,17 @@ const postSchema = mongoose.Schema({
         required:true
     },
     resume:{
-        type:String
+        type:String,
+        text:true
     },
     markdown:{
         type:String,
-        required:true
+        required:true,
+        text:true
     },
-    categorieId:{
-        type:String,
+    categorie:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'categorie'
     },
     createdAt:{
         type:Date,

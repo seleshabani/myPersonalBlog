@@ -32,14 +32,16 @@ const postOptions = {
             markdown:{
                 isVisible:{
                     list:false,edit:true
-                }
+                },
+                type:'richtext'
             },
             resume:{
                 isVisible:{
                     list:false,edit:true
-                }
-            }
-        }
+                },
+                type:'textarea'
+            },
+        },
     }
 
 }

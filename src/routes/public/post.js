@@ -34,8 +34,8 @@ postRouter.use(paginate(postModel,false,true));
 postRouter.get('/categories/views','post-byCat',async (req,res)=>{
     try {
         let id = req.query.catId;
-        // let posts = await postModel.find({categorieId:id});
-        let categorie = await categorieModel.findById(id);
+        //let posts = await postModel.find({categorieId:id});
+        let categorie = await categorieModel.findById(id)
         res.locals.page = `categorie : ${categorie.name}`
        // console.log(res.paginatedResults)
         res.render('posts/by-categories',{posts:res.paginatedResults,categorie:categorie});
