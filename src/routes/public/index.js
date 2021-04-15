@@ -10,7 +10,7 @@ indexRouter.use(localsDataMidlwares)
 
 indexRouter.get('/','home',async (req,res)=>{
     try {
-        let rescentPosts = await postModel.find().limit(4);
+        let rescentPosts = await postModel.find().populate('categorie').limit(4);
         res.render('global/index',{rescentPosts:rescentPosts});
 
     } catch (error) {

@@ -10,7 +10,7 @@
                         </div>
                         <div class="text">
                             <div class="cat-and-autor">
-                                <span class="cat"></span>
+                                <span class="cat"><%= post.categorie.name %></span>
                                 <span class="autor">Sele shabani</span>
                             </div>
                             <a href="/articles<%= url('post-single', {id: post._id}) %>" class="title">
