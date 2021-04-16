@@ -10,8 +10,9 @@ indexRouter.use(localsDataMidlwares)
 
 indexRouter.get('/','home',async (req,res)=>{
     try {
-        let rescentPosts = await postModel.find().populate('categorie').limit(4);
-        res.render('global/index',{rescentPosts:rescentPosts});
+        let topView = await postModel.find().populate('categorie').sort({view:'desc'}).limit(4);
+        let latestPost = await postModel.find().populate('categorie').sort({createdAt:'desc'}).limit(3);
+        res.render('global/index',{topView:topView,latestPost:latestPost});
 
     } catch (error) {
         console.log(error)

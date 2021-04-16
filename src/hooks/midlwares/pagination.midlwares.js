@@ -17,7 +17,7 @@ const paginate = (model, search = false,byCat=false) => {
                         .limit(limit).skip(startIdx).exec();
                     results.nbr = await model.find({ name: { $regex: new RegExp(req.params.q) } }).countDocuments();
                 }else if(byCat){
-                    results.results = await model.find({categorie:req.query.catId}).populate('categorie').limit(limit).skip(startIdx).exec();
+                    results.results = await model.find({categorie:req.query.catId}).populate('categorie').sort({createdAt:'desc'}).limit(limit).skip(startIdx).exec();
                     results.nbr = await model.find({categorie:req.query.catId}).countDocuments()
                 } else {
                     results.results = await model.find().limit(limit).skip(startIdx).exec();

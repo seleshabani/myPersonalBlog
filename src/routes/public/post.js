@@ -14,8 +14,9 @@ postRouter.use(localsDataMidlwares)
 postRouter.get('/:id','post-single',async (req,res)=>{
     try {
         let id = req.params.id;
-        let post = await postModel.findById(id);
-
+        let last = await postModel.findById(id)
+        let post = await postModel.findOneAndUpdate({_id:id},{view:last.view+1});
+        
         if (post) {
             res.locals.page = post.name;
             res.render('posts/single',{post:post})

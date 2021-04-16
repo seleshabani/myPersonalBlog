@@ -28,6 +28,14 @@ const postSchema = mongoose.Schema({
     },
     imageBucket:{
         type:String
+    },
+    view:{
+        type:Number,
+        default:0
+    },
+    shared:{
+        type:Number,
+        default:0
     }
 });
 
