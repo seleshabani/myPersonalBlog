@@ -161,6 +161,9 @@ nav{
     max-height: 50px;
     padding: 0px;
 }
+nav .brand-nav{
+    display: none;
+}
 nav ul{
     list-style: none;
     width: 100%;
@@ -185,6 +188,9 @@ nav ul li:hover{
 }
 nav a{
     color: whitesmoke;
+}
+nav .mobile-actions{
+    display: none;
 }
 main{
     position: relative;

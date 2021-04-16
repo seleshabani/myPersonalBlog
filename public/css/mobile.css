@@ -1,0 +1,103 @@
+@media screen and (max-width: 600px) {
+    header{
+        display: none;
+    }
+    nav{
+        width: 100%;
+        height: 50px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        align-content: center;
+        padding-left: 10px;
+        padding-right: 20px;
+    }
+    nav .brand-nav{
+        width: 30%;
+        display: flex;
+    }
+    nav .brand-nav a{
+        width: 100%;
+        font-size: 1.2rem;
+        font-weight: 800;
+        text-transform: capitalize;
+    }
+    nav ul{
+        display: none;
+    }
+    nav .mobile-actions{
+        width: 40%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+    nav .menu-toggler{
+        width: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        color: white;
+        cursor: pointer;
+    }
+    nav .menu-toggler i{
+        margin-bottom: 0px;
+    }
+    nav .search-togler{
+        width: 50px;
+        display: flex;
+        align-content: center;
+        align-items: center;
+        color: white;
+        cursor: pointer;
+    }
+    /* accueil */
+
+  main .container  .top-header{
+        width: 100%;
+        height: max-content;
+        display: flex;
+        flex-direction: column;
+    }
+    main .container .top-header .right-content{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    main .container .top-header .right-content .big-post-item{
+        width: 100%;
+    }
+    main .container .top-header .right-content .min-post-item{
+        width: 100%;
+        height: 150px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+    }
+    main .container .top-header .right-content .min-post-item
+    .post-img{
+        width: 45%;
+        height: 100%;
+    }
+    main .container .top-header .right-content .min-post-item
+    .post-resume{
+        width: 50%;
+    }
+    main .container .top-header .left-content{
+        width: 100%;
+    }
+    main .container .top-header .left-content .post-item
+    .post-resume p{
+        display: none;
+    }
+    main .container .content{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    main .container .content .daily-news{
+        width: 100%;
+    }
+  }

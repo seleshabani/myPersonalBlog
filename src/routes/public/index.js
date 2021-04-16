@@ -15,9 +15,13 @@ indexRouter.get('/','home',async (req,res)=>{
         res.render('global/index',{topView:topView,latestPost:latestPost});
 
     } catch (error) {
-        console.log(error)
+        console.log(error) 
         res.status(500);
         res.render('error/server')
     }
+})
+
+indexRouter.get('/search-form','post-search-form',async (req,res)=>{
+    res.render('global/search');
 })
 module.exports = indexRouter

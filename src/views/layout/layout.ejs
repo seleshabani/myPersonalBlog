@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/public/css/normalize.css">
     <link rel="stylesheet" href="/public/css/all.css">
     <link rel="stylesheet" href="/public/css/style.css">
+    <link rel="stylesheet" href="/public/css/mobile.css">
     <%- style %>
     <title>
         <%= locals.websiteName %> | <%= locals.page %>
@@ -38,6 +39,9 @@
         </div>
     </header>
     <nav>
+        <div class="brand-nav">
+            <a href="/"><%= locals.websiteName %></a>
+        </div>
         <ul>
             <% locals.categories.forEach( categorie => { %>
                 <li>
@@ -48,6 +52,18 @@
                 </li>
             <% }) %>
         </ul>
+        <div class="mobile-actions">
+            <div class="search-togler">
+                <a href="<%= url("post-search-form") %>">
+                    <i class="fa fa-search"></i>
+                </a>
+            </div>
+            <div class="menu-toggler">
+                <i class="fa fas fa-minus"></i>
+                <i class="fa fas fa-minus"></i>
+                <i class="fa fas fa-minus"></i>
+            </div>
+        </div>
     </nav>
     <main>
         <%- body %>

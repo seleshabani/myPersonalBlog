@@ -11,7 +11,7 @@ const indexRouter = require('./routes/public');
 const PORT = process.env.PORT || 3500;
 const namedRouter = require('./hooks/namedRouter');
 const postRouter = require('./routes/public/post');
-
+const {handle404} = require('./hooks/midlwares/error.midlwares');
 const run = async () => {
  
     app.use('/public', express.static(path.join(__dirname, '../public')));
@@ -34,7 +34,7 @@ const run = async () => {
     app.use(express.urlencoded({ extended: true }));
     app.use('/',indexRouter);
     app.use('/articles',postRouter)
-
+    app.use(handle404);
     app.listen(PORT, () => {
         console.log(`server on http://localhost:${PORT}`);
     })
