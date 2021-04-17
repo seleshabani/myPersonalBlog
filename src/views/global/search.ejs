@@ -1,1 +1,10 @@
-<h1>search</h1>
+<link rel="stylesheet" href="/public/css/search.css">
+<div class="container">
+    <h1>Recherche</h1>
+    <form action="/articles<%= url('post-search') %>" class="input-search">
+        <input type="text" name="request">
+        <input type="hidden" name="page" value="1">
+        <input type="hidden" name="limit" value="4">
+        <button class="btn">Rechercher</button>
+    </form>
+</div>

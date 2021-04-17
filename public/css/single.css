@@ -15,3 +15,19 @@
     width: 100%;
     word-break: break-all;
 }
+@media screen and (max-width: 600px) {
+    main .container{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    main .container .single-container{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+    }
+    main .container .single-container .post-container{
+        width: 100%;
+    }
+}
