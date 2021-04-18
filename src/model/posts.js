@@ -19,6 +19,10 @@ const postSchema = mongoose.Schema({
         type:mongoose.Schema.Types.ObjectId,
         ref:'categorie'
     },
+    sousCategorie:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'sousCategorie'
+    },
     createdAt:{
         type:Date,
         default:Date.now
