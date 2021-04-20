@@ -10,7 +10,7 @@
                         </div>
                         <div class="text">
                             <div class="cat-and-autor">
-                                <span class="cat"><%= post.categorie.name %> <%= (post.sousCategorie !== undefined)? `| ${post.sousCategorie.name}` : '' %></span>
+                                <span class="cat"><%= categorie.name %> - <%= sousCategorie.name %></span>
                                 <span class="autor">Sele shabani</span>
                             </div>
                             <a href="/articles<%= url('post-single', {id: post._id}) %>" class="title">
@@ -27,7 +27,7 @@
                 <% if(posts.previous !==undefined) {%>
                     <a
                         class="btn"
-                        href="/articles<%= url('post-search')%>?request=<%= searchq %>&page=<%= posts.previous.page %>&limit=<%= posts.previous.limit %>">
+                        href="/articles<%= url('post-byCat')%>?catId=<%= categorie._id %>&page=<%= posts.previous.page %>&limit=<%= posts.previous.limit %>">
                         précedent
                     </a>
                 <% } %>
@@ -35,7 +35,7 @@
                 <% if(posts.next !==undefined) {%>
                     <a 
                     class="btn"
-                    href="/articles<%= url('post-search')%>?request=<%= searchq %>&page=<%= posts.next.page %>&limit=<%= posts.next.limit %>">
+                    href="/articles<%= url('post-byCat')%>?catId=<%= categorie._id %>&page=<%= posts.next.page %>&limit=<%= posts.next.limit %>">
                         suivant
                     </a>
                 <% } %>

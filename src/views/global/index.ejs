@@ -6,7 +6,7 @@
                     <img src="<%= `public/${topView[0].image}` %>" alt="">
                     <div class="post-img-detail">
                         <div class="categorie">
-                            <span><%= topView[0].categorie.name  %></span>
+                            <span><%= topView[0].categorie.name  %> <%= (topView[0].sousCategorie !== undefined)? `| ${topView[0].sousCategorie.name}` : '' %></span>
                         </div>
                         <div class="stats">
                             <span>
@@ -33,7 +33,7 @@
                     <img src="<%= `public/${topView[1].image}` %>" alt="">
                     <div class="post-img-detail">
                         <div class="categorie">
-                            <span><%= topView[1].categorie.name %></span>
+                            <span><%= topView[1].categorie.name %> <%= (topView[1].sousCategorie !== undefined)? `| ${topView[1].sousCategorie.name}` : '' %></span>
                         </div>
                         <div class="stats">
                             <span><i class="far fa-eye"></i></span>
@@ -58,7 +58,7 @@
                     <img src="<%= `public/${topView[2].image}` %>" alt="">
                     <div class="post-img-detail">
                         <div class="categorie">
-                            <span>lorem ipsum</span>
+                            <span> <%= (topView[2].sousCategorie !== undefined)? `| ${topView[2].sousCategorie.name}` : '' %></span>
                         </div>
                         <div class="stats">
                             <span><i class="far fa-eye"></i></span>
@@ -78,7 +78,7 @@
                     <img src="<%= `public/${topView[3].image}` %>" alt="">
                     <div class="post-img-detail">
                         <div class="categorie">
-                            <span>lorem ipsum</span>
+                            <span>lorem ipsum <%= (topView[2].sousCategorie !== undefined)? `| ${topView[3].sousCategorie.name}` : '' %> </span>
                         </div>
                         <div class="stats">
                             <span><i class="far fa-eye"></i></span>
@@ -109,7 +109,7 @@
                     </div>
                     <div class="text">
                         <div class="cat-and-autor">
-                            <span class="cat"><%=  post.categorie.name%></span>
+                            <span class="cat"><%=  post.categorie.name %> <%= (post.sousCategorie !== undefined)? `| ${post.sousCategorie.name}` : '' %></span>
                             <span class="autor">Sele shabani</span>
                         </div>
                         <a href="articles<%= url('post-single', {id: post._id}) %>" class="title">

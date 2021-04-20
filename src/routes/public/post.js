@@ -52,5 +52,9 @@ postRouter.get('/search/result','post-search',async (req,res)=>{
     let searcQ = req.query.request;
     res.render('posts/search',{posts:res.paginatedResults,searchq:searcQ})
 })
+postRouter.use(paginate(postModel,false,true,true));
+postRouter.get('/categoiries/sCategories/views','post-byScat',async (req,res)=>{
+    res.render('posts/by-sous-categorie');
+})
 
 module.exports = postRouter;

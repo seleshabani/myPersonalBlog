@@ -1,4 +1,6 @@
-
+h1{
+    text-transform: capitalize;
+}
 .single-container{
     width: 100%;
     display: flex;
