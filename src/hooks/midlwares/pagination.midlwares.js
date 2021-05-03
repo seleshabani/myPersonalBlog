@@ -11,20 +11,25 @@ const paginate = (model, search = false,byCat=false,byScat=false) => {
             
             
             try {
+                let nbrItems = 0;
                 if (search) {
                     results.results = await model.find({ name: { $regex: new RegExp(req.query.request) } })
                         .populate('categorie').populate('sousCategorie')
                         .limit(limit).skip(startIdx).exec();
-                    results.nbr = await model.find({ name: { $regex: new RegExp(req.params.q) } }).countDocuments();
+
+                    nbrItems = await model.find({ name: { $regex: new RegExp(req.params.q) } }).countDocuments();
                 }else if(byCat){
                     results.results = await model.find({categorie:req.query.catId}).populate('categorie')
                     .populate('sousCategorie')
                     .sort({createdAt:'desc'}).limit(limit).skip(startIdx).exec();
-                    results.nbr = await model.find({categorie:req.query.catId}).countDocuments()
+                    nbrItems = await model.find({categorie:req.query.catId}).countDocuments()
                 } else {
                     results.results = await model.find().limit(limit).skip(startIdx).exec();
-                    results.nbr = await model.find().countDocuments()
+                    nbrItems = await model.find().countDocuments()
                 }
+                let nbrPages = Math.ceil(nbrItems / limit);
+                results.nbrPages = nbrPages;
+                results.limit = limit;
                 if (endIdx < results.nbr) {
                     results.next = {
                         page: page + 1,

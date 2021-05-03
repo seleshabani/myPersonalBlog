@@ -152,6 +152,12 @@ header .socials-links .icones a{
     color: var(--btn-color);
     margin-right: 5px;
 }
+header .action .user-name-wrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
 nav{
     background-color: var(--btn-color);
     display: flex;

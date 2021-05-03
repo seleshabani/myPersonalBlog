@@ -10,6 +10,37 @@
             <div class="post-content">
                 <%- post.markdown %>
             </div>
+            <!-- <div class="post-comment">
+
+            </div> -->
+            <div class="post-action">
+                <h2 class="section-title">Laissez un commentaire</h2>
+                <% if(locals.user === undefined){%>
+                    <a href="/login<%= url('login.choice') %>">
+                    Connectez vous pour laisser un commentaire
+                    </a>
+                <% } else { %>
+                <form action="" method="post">
+                    <div class="form-row">
+                        <div class="form-input">
+                            <input type="email" name="email" placeholder="email">
+                        </div>
+                        <div class="form-input">
+                            <input type="text" name="name" placeholder="votre nom(pseudo)">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <textarea name="" id="" cols="30" rows="10" placeholder="votre commentaire ici">
+                            
+                        </textarea>
+                    </div>
+                    <div class="form-action">
+                        <button class="
+                        btn">Commenter</button>
+                    </div>
+                </form>
+                <% } %>
+            </div>
         </div>
     </div>
 </div>

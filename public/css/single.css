@@ -17,6 +17,32 @@ h1{
     width: 100%;
     word-break: break-all;
 }
+
+.post-container .post-action{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.post-container .post-action form .form-row{
+    width: 100%;
+    margin-bottom: .5rem;
+}
+.post-container .post-action form .form-row:first-of-type{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+.post-container .post-action form
+.form-row:first-of-type .form-input{
+    width: 50%;
+}
+
+.post-container .post-action form
+.form-row textarea{
+    width: 100%;
+}
 @media screen and (max-width: 600px) {
     main .container{
         display: flex;
@@ -31,5 +57,11 @@ h1{
     }
     main .container .single-container .post-container{
         width: 100%;
+    }
+    .post-container .post-action form .form-row:first-of-type{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
     }
 }

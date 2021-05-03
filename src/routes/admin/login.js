@@ -18,4 +18,9 @@ loginRouter.get('/choice/google/callback',passport.authenticate('google',{failur
     res.redirect('/');
 });
 
+loginRouter.get('/logout','user.logout',(req,res)=>{
+    req.logOut();
+    res.redirect('/');
+})
+
 module.exports = loginRouter 
