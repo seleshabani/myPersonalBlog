@@ -35,7 +35,13 @@
             </div>
         </div>
         <div class="action">
-            <a class="btn" href="">Connexion</a>
+            <% if(locals.user === null){ %>
+                <a class="btn" href="/login<%= url('login.choice') %>">Connexion</a>
+            <% }else {%>
+                <span class="btn">
+                    <%= locals.user.name %>
+                </span>
+            <% } %>
         </div>
     </header>
     <nav>

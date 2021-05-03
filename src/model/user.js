@@ -1,18 +1,26 @@
 const mongoose = require('mongoose');
 const userSchema = mongoose.Schema({
+    googleId:{
+        type:String,
+    },
     name:{
         type:String,
         required:true
     },
     email:{
         type:String,
-        required:true
+    },
+    createdAt:{
+        type:Date,
+        default:Date.now
     },
     encryptedPassword:{
         type:String,
-        required:true
     },
-    role:{ type: String, enum: ['admin', 'restricted'], required: true }
+    image:{
+        type:String
+    },
+    role:{ type: String, enum: ['admin', 'restricted']}
 });
 const userModel = mongoose.model('user',userSchema);
 

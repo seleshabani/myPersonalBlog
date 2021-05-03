@@ -8,6 +8,10 @@ const localsDataMidlwares = async (req,res,next)=>{
             categories:await categorieModel.find(),
             page:'Accueil'
         }
+
+        if (req.isAuthenticated()) {
+            locals.user = req.user
+        }
         res.locals = locals;
         next();
     } catch (error) {
