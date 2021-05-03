@@ -10,9 +10,26 @@
             <div class="post-content">
                 <%- post.markdown %>
             </div>
-            <!-- <div class="post-comment">
-
-            </div> -->
+            <div class="post-comments">
+                <h2 class="section-title">commentaires</h2>
+                <% comments.map(comment =>{%>
+                    <div class="post-comments-comment">
+                        <div class="autor">
+                            <span>
+                                <i class="fa fa-user"></i>
+                            </span>
+                            <span>
+                                <%= comment.autorName %>
+                            </span>
+                        </div>
+                        <div class="content">
+                            <span>
+                              -  <%= comment.content %>
+                            </span>
+                        </div>
+                    </div> 
+                <%})%>
+            </div>
             <div class="post-action">
                 <h2 class="section-title">Laissez un commentaire</h2>
                 <% if(locals.user === undefined){%>
@@ -30,7 +47,7 @@
                         </div>
                     </div>
                     <div class="form-row">
-                        <textarea name="" id="" cols="30" rows="10" placeholder="votre commentaire ici">
+                        <textarea name="content" id="" cols="30" rows="10" placeholder="votre commentaire ici">
                             
                         </textarea>
                     </div>

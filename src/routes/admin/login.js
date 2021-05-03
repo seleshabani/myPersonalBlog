@@ -14,7 +14,6 @@ loginRouter.get('/choice/google',passport.authenticate('google', { scope: ['prof
 
 
 loginRouter.get('/choice/google/callback',passport.authenticate('google',{failureRedirect:'/'}),(req,res)=>{
-    //res.locals.user = req.user;
     res.redirect('/');
 });
 

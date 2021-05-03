@@ -18,6 +18,12 @@ h1{
     word-break: break-all;
 }
 
+.post-container .post-comments .post-comments-comment{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
 .post-container .post-action{
     width: 100%;
     display: flex;

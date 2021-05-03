@@ -4,6 +4,7 @@ const { paginate } = require('../../hooks/midlwares/pagination.midlwares');
 const postRouter = express.Router();
 const namedRouter = require('../../hooks/namedRouter');
 const { categorieModel } = require('../../model/categories');
+const {CommentModel} = require('../../model/comments');
 const { postModel } = require('../../model/posts');
 
 namedRouter.extendExpress(postRouter);
@@ -16,10 +17,11 @@ postRouter.get('/:id','post-single',async (req,res)=>{
         let id = req.params.id;
         let last = await postModel.findById(id)
         let post = await postModel.findOneAndUpdate({_id:id},{view:last.view+1});
-        
+        let comments = await CommentModel.find({postId:post._id})
+
         if (post) {
             res.locals.page = post.name;
-            res.render('posts/single',{post:post})
+            res.render('posts/single',{post:post,comments:comments})
         }else{
             res.status(404);
             res.render('error/404');
@@ -29,6 +31,27 @@ postRouter.get('/:id','post-single',async (req,res)=>{
         res.status(500);
         res.render('error/server');
     }
+})
+
+postRouter.post('/:id',async (req,res)=>{
+  try {
+    let id = req.params.id;
+    let post = await postModel.findById(id)
+    let {email,name,content} = req.body;
+    let comment = {autorMail:email,autorName:name,content:content,postId:post._id}
+    comment = await CommentModel.create(comment);
+    let comments = await CommentModel.find({postId:post._id})
+
+    if (post) {
+        res.locals.page = post.name;
+        res.render('posts/single',{post:post,comments})
+    }else{
+        res.status(404);
+        res.render('error/404');
+    }
+  } catch (error) {
+      console.log(error)
+  }
 })
 
 postRouter.use(paginate(postModel,false,true));
