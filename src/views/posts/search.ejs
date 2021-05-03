@@ -24,19 +24,9 @@
                     <%})%>
             </div>
             <div class="pagination">
-                <% if(posts.previous !==undefined) {%>
-                    <a
-                        class="btn"
-                        href="/articles<%= url('post-search')%>?request=<%= searchq %>&page=<%= posts.previous.page %>&limit=<%= posts.previous.limit %>">
-                        précedent
-                    </a>
-                <% } %>
-
-                <% if(posts.next !==undefined) {%>
-                    <a 
-                    class="btn"
-                    href="/articles<%= url('post-search')%>?request=<%= searchq %>&page=<%= posts.next.page %>&limit=<%= posts.next.limit %>">
-                        suivant
+                <% for (i = 1; i <= posts.nbrPages; i++) { %>
+                    <a class="btn" href="/articles<%= url('post-search')%>?query=<%= searchq %>&page=<%= i %>&limit=<%= posts.limit %>">
+                        <%= i %>
                     </a>
                 <% } %>
             </div>
