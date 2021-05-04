@@ -2,7 +2,7 @@
   "name": "MyBlog",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "devStart": "nodemon index.js",
     "start": "node index.js"
