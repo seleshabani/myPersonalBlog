@@ -57,6 +57,7 @@
             <a href="/"><%= locals.websiteName %></a>
         </div>
         <ul>
+            <% if(typeof locals.categories !== 'undefined') {%>
             <% locals.categories.forEach( categorie => { %>
                 <li>
                     
@@ -65,6 +66,7 @@
                     </a>
                 </li>
             <% }) %>
+            <% } %>
         </ul>
         <div class="mobile-actions">
             <div class="search-togler">
