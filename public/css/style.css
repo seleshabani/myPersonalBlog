@@ -199,6 +199,10 @@ nav a{
 nav .mobile-actions{
     display: none;
 }
+/* mobile nav */
+.menu-mobile{
+    display: none;
+}
 main{
     position: relative;
     display: flex;

@@ -81,10 +81,29 @@
             </div>
         </div>
     </nav>
+    <div class="menu-mobile">
+        <div class="brand">
+            <h2><%= locals.websiteName %></h2>
+            <div class="close">X</div>
+        </div>
+        <ul class="menu-items">
+            <% if(typeof locals.categories !== 'undefined') {%>
+            <% locals.categories.forEach( categorie => { %>
+                <li>
+                    
+                    <a href="/articles<%= url('post-byCat')%>?catId=<%= categorie._id %>&page=1&limit=4">
+                        <%= categorie.name %>
+                    </a>
+                </li>
+            <% }) %>
+            <% } %>
+        </ul>
+    </div>
     <main>
         <%- body %>
     </main>
     <%- script %>
+    <script src="/public/js/responsive.js"></script>
     <footer>
         
     </footer>
