@@ -16,11 +16,21 @@ const loginRouter = require('./routes/admin/login');
 const passport = require('passport');
 const session = require('express-session');
 const ConnectMongo = require('connect-mongo');
+const sassMiddleware = require('node-sass-middleware');
 const { isAuthenticated } = require('./hooks/midlwares/authMidlware');
 
 
 const run = async() => {
     //require('./hooks/passport')(passport)
+    app.use(sassMiddleware({
+        /* Options */
+        src: path.join(__dirname, 'sass'),
+        dest: path.join(__dirname, '../public/css'),
+        debug: true,
+        outputStyle: 'compressed',
+        prefix: '/styles' // Where prefix is at <link rel="stylesheets" href="prefix/style.css"/>
+    }));
+
     app.use('/public', express.static(path.join(__dirname, '../public')));
     const adminBro = new AdminBro(adminBroOptions);
     const adminRouter = buildAdminBroRouter(adminBro);
